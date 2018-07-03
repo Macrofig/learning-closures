@@ -7,6 +7,24 @@ describe('Learning Closures' , () => {
     assert('hello' === 'hello');
   });
 
+  it('functions create closures, closures create scope', () => {
+    const cb = () => {
+      const hello = 'world';
+      assert(hello === 'world');
+    }
+
+    assert(typeof hello === 'undefined')
+  });
+
+  it('curly braces create scope, too!', () => {
+    if (true) {
+      const hello = 'world';
+      assert(hello === 'world');
+    }
+
+    assert(typeof hello === 'undefined');
+  });
+
   describe('Root scope', () => {
     it('creating a variable outside of any closure is accessible', () => {
       assert(name === 'Juan');
